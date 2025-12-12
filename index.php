@@ -6,9 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="index.php" method="POST">
-        <input type="text" value="<?php ?>" />
-        <input type="submit" name="post.btn" value="Skicka" />
-    </form>
+    <?php if(isset($_GET['get_btn'])): ?>
+        <form action="index.php" method="POST">
+            <input type="text" name="text" value="<?=$_GET['text']?>"/>
+            <input type="submit" name="post_btn" value="Skicka" />
+        </form>
+    <?php else: ?>
+        <form action="index.php" method="GET">
+            <input type="text" name="text" value="<?=$_POST['text']?>"/>
+            <input type="submit" name="get_btn" value="Skicka" />        
+        </form>
+    <?php endif ?>
 </body>
 </html>
